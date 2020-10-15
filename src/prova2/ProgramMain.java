@@ -11,6 +11,8 @@ public class ProgramMain {
 		Scanner sc = new Scanner(System.in);
 		
 		int a = 0;
+		
+		System.out.println(a);
 
 		sc.close();
 	}

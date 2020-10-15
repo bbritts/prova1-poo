@@ -9,6 +9,8 @@ public class ProgramMain {
 		
 		Locale.setDefault(Locale.US);
 		Scanner sc = new Scanner(System.in);
+		
+		int a = 0;
 
 		sc.close();
 	}

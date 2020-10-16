@@ -6,19 +6,17 @@ public class ProgramMain {
 
 	public static void main(String[] args) {
 
-		Paciente[] paciente = new Paciente[10];
+		Paciente[] paciente = new Paciente[2];
 		int quantPacientes = 0;
 		byte repeteMenu = 1;
 
 		Scanner sc = new Scanner(System.in);
 
-		System.out.println("Bem vindo ao Sistema de Registro de Pacientes - COVID19");
-		System.out.println();
+		System.out.println("Bem vindo ao Sistema de Registro de Pacientes - COVID19\n\n");
 
 		do {
 
-			System.out.println("Escolha uma opção no menu:");
-			System.out.println();
+			System.out.println("Escolha uma opção no menu:\n");
 			System.out.println("1 - Cadastrar paciente");
 			System.out.println("2 - Listar pacientes");
 			System.out.println("3 - Listar pacientes de acordo com comorbidade");
@@ -36,8 +34,7 @@ public class ProgramMain {
 				break;
 				
 			case 1:
-				System.out.println("Cadastro de pacientes:");
-				System.out.println();
+				System.out.println("Cadastro de pacientes:\n");
 				System.out.print("Por favor, informe o nome completo do paciente: ");
 				String nome = sc.nextLine();
 				System.out.print("Informe a idade do paciente: ");
@@ -68,6 +65,13 @@ public class ProgramMain {
 					} while (resposta != 0);
 				}
 				quantPacientes++;
+				
+				if (quantPacientes == paciente.length) {
+					Paciente[] novoVetor = new Paciente[paciente.length * 2];
+					for(int i = 0; i < paciente.length; i++)
+						novoVetor[i] = paciente[i];
+					paciente = novoVetor;
+				}
 				
 				System.out.println();
 				break;

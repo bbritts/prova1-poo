@@ -9,12 +9,15 @@ public class ProgramMain {
 		Paciente[] paciente = new Paciente[2];
 		int quantPacientes = 0;
 		byte repeteMenu = 1;
+		
 
 		Scanner sc = new Scanner(System.in);
 
 		System.out.println("Bem vindo ao Sistema de Registro de Pacientes - COVID19\n\n");
 
 		do {
+			
+			boolean encontrado;
 
 			System.out.println("Escolha uma opção no menu:\n");
 			System.out.println("1 - Cadastrar paciente");
@@ -25,7 +28,7 @@ public class ProgramMain {
 			System.out.println("0 - Para sair do programa");
 
 			repeteMenu = sc.nextByte();
-			sc.nextLine();
+			sc.nextLine();			
 
 			switch (repeteMenu) {
 
@@ -93,11 +96,18 @@ public class ProgramMain {
 				String buscaComorbidade = sc.nextLine();
 				
 				System.out.println("Pacientes com " + buscaComorbidade + ":\n");
+				
+				encontrado = false;
 
 				for (Paciente obj : paciente) {
-					if (obj != null && obj.buscaComorbidade(buscaComorbidade) != null)
-						System.out.println("Nome do paciente: " + obj.getNome());
+					if (obj != null && obj.buscaComorbidade(buscaComorbidade) != null) {
+						System.out.println("Nome do paciente: " + obj.getNome() + "\n");
+						encontrado = true;						
+					}
 				}
+				
+				if (!encontrado)
+					System.out.println("Não foram encontrados pacientes com " + buscaComorbidade + "\n");
 				
 				System.out.println();
 				break;
@@ -105,10 +115,17 @@ public class ProgramMain {
 			case 4:
 
 				System.out.println("Lista de pacientes sem comorbidades\n");
+				
+				encontrado = false;
 				for (Paciente obj : paciente) {
-					if (obj != null && obj.getQuantComorbidades() == 0)
+					if (obj != null && obj.getQuantComorbidades() == 0) {
 						System.out.println(obj.getNome());
+						encontrado = true;
+					}
 				}
+				
+				if (!encontrado)
+					System.out.println("Não foram encontrados pacientes sem comorbidades\n");
 				
 				System.out.println();
 				break;

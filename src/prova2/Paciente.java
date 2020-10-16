@@ -4,10 +4,10 @@ public class Paciente {
 	
 	private static final int MAX = 10;
 	
-	String nome;
-	int idade;
-	Comorbidade[] listaComorbidade;
-	int quantComorbidades = 0;
+	private String nome;
+	private int idade;
+	private Comorbidade[] listaComorbidade;
+	private int quantComorbidades = 0;
 	
 	public Paciente(String nome, int idade) {
 		setNome(nome);
@@ -33,14 +33,6 @@ public class Paciente {
 	
 	public int getQuantComorbidades() {
 		return this.quantComorbidades;
-	}
-
-	public Comorbidade[] getListaComorbidade() {
-		return listaComorbidade;
-	}
-
-	public void setListaComorbidade(Comorbidade[] listaComorbidade) {
-		this.listaComorbidade = listaComorbidade;
 	}
 	
 	public void addComorbidades(String comorbidade, int anosAcometido) {

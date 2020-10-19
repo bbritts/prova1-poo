@@ -14,10 +14,6 @@ public class Registro {
 		this.quantPacientes = 0;
 	}
 
-	public Paciente[] getPaciente() {
-		return paciente;
-	}
-
 	public int getQuantPacientes() {
 		return quantPacientes;
 	}
@@ -33,32 +29,36 @@ public class Registro {
 		paciente[quantPacientes] = new Paciente(nome, idade);
 		System.out.println();
 		System.out.println("O paciente possui comorbidades?");
-		System.out.println("0 - Não");
+		System.out.println("0 - NÃ£o");
 		System.out.println("1 - Sim");
 		byte resposta = sc.nextByte();
 		sc.nextLine();
 
-		if (resposta == 1) {
-			while (paciente[quantPacientes].getQuantComorbidades() < paciente[quantPacientes].getMax()
-					&& resposta == 1) {
-
-				paciente[quantPacientes].addComorbidades();
-
-				if (paciente[quantPacientes].getQuantComorbidades() < paciente[quantPacientes].getMax()) {
-
-					System.out.println("Deseja cadastrar outra comorbidade?");
-					System.out.println("0 - Não");
-					System.out.println("1 - Sim");
-					resposta = sc.nextByte();
-					sc.nextLine();
-				}
-			}
-		}
+		if (resposta == 1) 
+			cadastraComorbidades(resposta);
 
 		quantPacientes++;
 
 		if (quantPacientes == paciente.length)
 			aumentaVetor();
+	}
+	
+	public void cadastraComorbidades(int resposta) {
+		
+		while (paciente[quantPacientes].getQuantComorbidades() < paciente[quantPacientes].getMax()
+				&& resposta == 1) {
+			
+			paciente[quantPacientes].addComorbidades();
+			
+			if (paciente[quantPacientes].getQuantComorbidades() < paciente[quantPacientes].getMax()) {
+				
+				System.out.println("Deseja cadastrar outra comorbidade?");
+				System.out.println("0 - NÃ£o");
+				System.out.println("1 - Sim");
+				resposta = sc.nextByte();
+				sc.nextLine();
+			}
+		}
 	}
 
 	public void aumentaVetor() {
@@ -67,13 +67,14 @@ public class Registro {
 		for (int i = 0; i < paciente.length; i++)
 			novoVetor[i] = paciente[i];
 		paciente = novoVetor;
-	}
+	}	
 
 	public void listaPacientes() {
-		System.out.println("Lista de Pacientes\n");
+		System.out.println("Lista de Pacientes");
+		System.out.println("----------------------------------------\n");
 
 		if (quantPacientes == 0)
-			System.out.println("Nenhum paciente cadastrado até o momento\n");
+			System.out.println("Nenhum paciente cadastrado atÃ© o momento\n");
 		else {
 			for (Paciente obj : paciente) {
 				if (obj != null)
@@ -84,10 +85,11 @@ public class Registro {
 
 	public void listaPorComorbidade() {
 
-		System.out.println("Lista de pacientes por comorbidade\n");
+		System.out.println("Lista de pacientes por comorbidade");
+		System.out.println("----------------------------------------\n");
 
 		if (quantPacientes == 0)
-			System.out.println("Nenhum paciente cadastrado até o momento\n");
+			System.out.println("Nenhum paciente cadastrado atÃ© o momento\n");
 		else {
 			System.out.print("Digite o nome da comorbidade buscada: ");
 			String buscaComorbidade = sc.nextLine();
@@ -104,15 +106,16 @@ public class Registro {
 			}
 
 			if (!encontrado)
-				System.out.println("Não foram encontrados pacientes com " + buscaComorbidade + "\n");
+				System.out.println("NÃ£o foram encontrados pacientes com " + buscaComorbidade + "\n");
 		}
 	}
 
 	public void listaSemComorbidade() {
-		System.out.println("Lista de pacientes sem comorbidades\n");
+		System.out.println("Lista de pacientes sem comorbidades");
+		System.out.println("----------------------------------------\n");
 
 		if (quantPacientes == 0)
-			System.out.println("Nenhum paciente cadastrado até o momento\n");
+			System.out.println("Nenhum paciente cadastrado atÃ© o momento\n");
 		else {
 			boolean encontrado = false;
 
@@ -124,7 +127,7 @@ public class Registro {
 			}
 
 			if (!encontrado)
-				System.out.println("Não foram encontrados pacientes sem comorbidades\n");
+				System.out.println("NÃ£o foram encontrados pacientes sem comorbidades\n");
 		}
 	}
 }

@@ -24,11 +24,12 @@ public class Comorbidade {
 	}
 
 	public void setAnosAcometido(int anosAcometido) {
-		this.anosAcometido = anosAcometido;
+		if (anosAcometido >= 0 && anosAcometido <= 140) 
+			this.anosAcometido = anosAcometido;
 	}
 	
 	public void imprimeComorbidades() {
 		System.out.print("Nome da comorbidade: " + getNomeComorbidade() + "\n");
-		System.out.print("Convive com a doença há quantos anos? " + getAnosAcometido() + "\n\n");		
+		System.out.print("Convive com a doenÃ§a hÃ¡ quantos anos? " + getAnosAcometido() + "\n\n");
 	}
 }

@@ -44,7 +44,7 @@ public class ProgramMain {
 				break;
 
 			default:
-				System.out.println("OpÁ„o inv·lida!");
+				System.out.println("Op√ß√£o inv√°lida!");
 				System.out.println();
 				break;
 			}
@@ -61,7 +61,7 @@ public class ProgramMain {
 	}
 
 	public static void imprimeMenu() {
-		System.out.println("                Escolha uma opÁ„o no menu:               \n");
+		System.out.println("                Escolha uma op√ß√£o no menu:               \n");
 		System.out.println("---------------------------------------------------------");
 		System.out.println("-     1 - Cadastrar paciente                            -");
 		System.out.println("-     2 - Listar pacientes                              -");

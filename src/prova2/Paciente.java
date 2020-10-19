@@ -37,7 +37,7 @@ public class Paciente {
 	}
 
 	public void setIdade(int idade) {
-		if (idade >= 0)
+		if (idade >= 0 && idade <=140)
 			this.idade = idade;
 	}
 
@@ -47,11 +47,11 @@ public class Paciente {
 
 	public void addComorbidades() {
 
-		System.out.println("Registre até " + (MAX - quantComorbidades) + " doenças\n");
+		System.out.println("Registre atÃ© " + (MAX - quantComorbidades) + " doenÃ§as\n");
 
 		System.out.print("Digite o nome da comorbidade: ");
 		String nomeCom = sc.nextLine();
-		System.out.print("Há quantos anos tem a doença? ");
+		System.out.print("HÃ¡ quantos anos tem a doenÃ§a? ");
 		int anosAcometido = sc.nextInt();
 		sc.nextLine();
 
@@ -73,8 +73,11 @@ public class Paciente {
 		System.out.print("Nome do Paciente: " + getNome() + "\n");
 		System.out.print("Idade: " + getIdade() + "\n");
 
-		if (quantComorbidades == 0)
-			System.out.print("Possui comorbidades? Não\n\n");
+		if (quantComorbidades == 0) {
+			System.out.print("Possui comorbidades? NÃ£o\n\n");
+			System.out.println("----------------------------------------");			
+			System.out.println("----------------------------------------\n");			
+		}
 		else {
 			System.out.println("Possui comorbidades? Sim\n");
 
@@ -82,6 +85,8 @@ public class Paciente {
 				if (obj != null)
 					obj.imprimeComorbidades();
 			}
+			System.out.println("----------------------------------------");
+			System.out.println("----------------------------------------\n");
 		}
 	}
 }
